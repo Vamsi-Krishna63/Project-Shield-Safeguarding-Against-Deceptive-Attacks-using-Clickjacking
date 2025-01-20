@@ -1,0 +1,4 @@
+`X-Frame-Options` header is considered deprecated, since its protection can be bypassed using several iframe layers.
+`Content-Security-Policy` header is using in place of it.
+
+Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options

